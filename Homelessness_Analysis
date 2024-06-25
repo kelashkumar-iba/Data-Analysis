@@ -1,3 +1,4 @@
+# Task 1: Plotting Total Homeless Individuals and Family Members by Region
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -19,7 +20,9 @@ plt.grid(axis='y')
 plt.tight_layout()
 plt.show()
 
+# ----------------------------------------------------------------
 
+# Task 2: Bar Chart of Homeless Individuals by State Population
 # Calculate homeless individuals per 100,000 state population
 df['homeless_per_100k'] = (df['individuals'] / df['state_pop']) * 100000
 
