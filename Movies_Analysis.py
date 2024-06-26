@@ -22,7 +22,7 @@ zi = k(np.vstack([xi.flatten(), yi.flatten()]))
 
 # Plot KDE
 plt.figure(figsize=(10, 8))
-plt.title('KDE Plot: Correlation Between Metascore and Rating', fontsize=16)
+plt.title('Correlation Between Metascore and Rating', fontsize=16)
 plt.xlabel('Metascore')
 plt.ylabel('Rating')
 plt.grid(True)
