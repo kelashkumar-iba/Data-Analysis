@@ -21,7 +21,7 @@ xi, yi = np.mgrid[xmin:xmax:100j, ymin:ymax:100j]
 zi = k(np.vstack([xi.flatten(), yi.flatten()]))
 
 # Plot KDE
-plt.figure(figsize=(10, 5))
+plt.figure(figsize=(11, 5))
 plt.title('Correlation Between Metascore and Rating', fontsize=16)
 plt.xlabel('Metascore')
 plt.ylabel('Rating')
