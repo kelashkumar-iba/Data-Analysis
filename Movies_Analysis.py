@@ -41,7 +41,7 @@ plt.xlabel('Year', fontsize=14)
 plt.ylabel('Number of Movies', fontsize=14)
 plt.xticks(rotation=45)
 plt.grid(True)
-plt.show()
+# plt.show()
 
 # Calculate correlation
 correlation = movies_df['Metascore'].corr(movies_df['rating'])
