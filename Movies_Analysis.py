@@ -36,7 +36,7 @@ movies_per_year = highly_rated_movies.groupby('year').size()
 
 plt.figure(figsize=(12, 8))
 plt.bar(movies_per_year.index, movies_per_year.values, color='teal')
-plt.title('Number of Highly Rated Movies Over the Year', fontsize=16, weight='bold')
+plt.title('Number of Highly Rated Movies Over the Years', fontsize=15, weight='bold')
 plt.xlabel('Year', fontsize=14)
 plt.ylabel('Number of Movies', fontsize=14)
 plt.xticks(rotation=45)
