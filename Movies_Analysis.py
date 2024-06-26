@@ -28,7 +28,7 @@ plt.ylabel('Rating')
 plt.grid(True)
 plt.pcolormesh(xi, yi, zi.reshape(xi.shape), cmap='viridis')
 plt.colorbar(label='Density')
-plt.show()
+# plt.show()
 
 # Highly Rated Movies Over the Years (Bar Plot)
 highly_rated_movies = movies_df[movies_df['rating'] >= 8]
@@ -41,7 +41,7 @@ plt.xlabel('Year', fontsize=14)
 plt.ylabel('Number of Movies', fontsize=14)
 plt.xticks(rotation=45)
 plt.grid(True)
-# plt.show()
+plt.show()
 
 # Calculate correlation
 correlation = movies_df['Metascore'].corr(movies_df['rating'])
