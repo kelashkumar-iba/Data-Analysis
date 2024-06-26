@@ -21,7 +21,7 @@ xi, yi = np.mgrid[xmin:xmax:100j, ymin:ymax:100j]
 zi = k(np.vstack([xi.flatten(), yi.flatten()]))
 
 # Plot KDE
-plt.figure(figsize=(10, 6))
+plt.figure(figsize=(10, 5))
 plt.title('Correlation Between Metascore and Rating', fontsize=16)
 plt.xlabel('Metascore')
 plt.ylabel('Rating')
@@ -34,7 +34,7 @@ plt.show()
 highly_rated_movies = movies_df[movies_df['rating'] >= 8]
 movies_per_year = highly_rated_movies.groupby('year').size()
 
-plt.figure(figsize=(11, 6))
+plt.figure(figsize=(11, 5))
 plt.bar(movies_per_year.index, movies_per_year.values, color='teal')
 plt.title('Number of Highly Rated Movies Over the Years', fontsize=15, weight='bold')
 plt.xlabel('Year', fontsize=14)
