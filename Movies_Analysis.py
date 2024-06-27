@@ -28,7 +28,7 @@ plt.ylabel('Rating')
 plt.grid(True)
 plt.pcolormesh(xi, yi, zi.reshape(xi.shape), cmap='viridis')
 plt.colorbar(label='Density')
-plt.show()
+# plt.show()
 
 # Highly Rated Movies Over the Years (Bar Plot)
 highly_rated_movies = movies_df[movies_df['rating'] >= 8]
