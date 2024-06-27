@@ -32,5 +32,4 @@ plt.ylabel('Average Score')
 # Rotate x-ticks for better readability
 plt.xticks(rotation=45, ha='right')
 
-# Show plot
-plt.show()
+# plt.show()
