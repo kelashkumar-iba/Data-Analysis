@@ -11,7 +11,7 @@ df = pd.read_csv("D:\\DataCamp\\Datasets\\countrywise.csv")
 df_clean = df.dropna(subset=['New cases', 'New deaths'])
 
 # Create scatter plot
-plt.figure(figsize=(10, 5))
+plt.figure(figsize=(10, 6))
 sns.scatterplot(data=df_clean, x='New cases', y='New deaths', hue='WHO Region', palette='Set2', alpha=0.8)
 
 # Fit and plot trendline
