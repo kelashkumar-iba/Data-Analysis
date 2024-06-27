@@ -22,7 +22,7 @@ zi = k(np.vstack([xi.flatten(), yi.flatten()]))
 
 # Plot KDE
 plt.figure(figsize=(11, 5))
-plt.title('Correlation Between Metascore and Rating', fontsize=15)
+plt.title('Correlation Between Metascore and Rating', fontsize=16)
 plt.xlabel('Metascore')
 plt.ylabel('Rating')
 plt.grid(True)
@@ -41,7 +41,7 @@ plt.xlabel('Year', fontsize=14)
 plt.ylabel('Number of Movies', fontsize=15)
 plt.xticks(rotation=45)
 plt.grid(True)
-# plt.show()
+plt.show()
 
 # Calculate correlation
 correlation = movies_df['Metascore'].corr(movies_df['rating'])
