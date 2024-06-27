@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Load the CSV file
-students_df = pd.read_csv("D:\DataCamp\Datasets\students.csv")
+students_df = pd.read_csv("D:\\DataCamp\\Datasets\\students.csv")
 
 # Calculate average scores in each subject by student ID
 student_performance = students_df.groupby('ID')[['Algebra', 'Calculus1', 'Calculus2', 'Statistics', 'Probability', 'Measure', 'Functional_analysis']].mean()
