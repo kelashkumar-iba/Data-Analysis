@@ -15,7 +15,7 @@ random_students = np.random.choice(student_performance.index, size=7, replace=Fa
 student_performance_random = student_performance.loc[random_students]
 
 # Set up the matplotlib figure
-fig, ax = plt.subplots(figsize=(10, 8))
+fig, ax = plt.subplots(figsize=(12, 8))
 
 # Define professional colors manually from a colormap
 colors = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e377c2']
