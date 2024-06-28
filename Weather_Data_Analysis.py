@@ -4,15 +4,15 @@ import matplotlib.pyplot as plt
 # Load the dataset
 df = pd.read_csv("D:\DataCamp\Datasets\weather.csv")
 
-# Summarize total precipitation by station
-total_precipitation = df.groupby('Station')['Precipitation'].sum().sort_values(ascending=False).head(10)
+# Sample the data to avoid congestion (e.g., sample 1000 points)
+sampled_df = df.sample(n=1000, random_state=1)
 
-# Bar chart of precipitation by top 10 stations
-plt.figure(figsize=(10, 6))
-total_precipitation.plot(kind='bar', color='b')
-plt.title('Total Precipitation by Top 10 Stations')
-plt.xlabel('Station')
-plt.ylabel('Total Precipitation')
-plt.xticks(rotation=45)
+# Histogram of humidity levels (sampled data)
+plt.figure(figsize=(8, 6))
+plt.hist(sampled_df['Humidity'], bins=20, color='g', alpha=0.7)
+plt.title('Humidity Distribution (Sampled Data)')
+plt.xlabel('Humidity (%)')
+plt.ylabel('Frequency')
 plt.grid(True)
 plt.show()
+
