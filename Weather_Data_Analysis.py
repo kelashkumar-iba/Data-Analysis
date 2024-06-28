@@ -20,7 +20,7 @@ plt.show()
 sampled_df = df.sample(n=1000, random_state=1)
 
 # Histogram of humidity levels (sampled data)
-plt.figure(figsize=(8, 6))
+plt.figure(figsize=(10, 5))
 plt.hist(sampled_df['Humidity'], bins=20, color='r', alpha=0.7)
 plt.title('Humidity Distribution (Sampled Data)')
 plt.xlabel('Humidity (%)')
@@ -32,7 +32,7 @@ plt.show()
 total_precipitation = df.groupby('Station')['Precipitation'].sum().sort_values(ascending=False).head(10)
 
 # Bar chart of precipitation by top 10 stations
-plt.figure(figsize=(10, 6))
+plt.figure(figsize=(10, 5))
 total_precipitation.plot(kind='bar', color='b')
 plt.title('Total Precipitation by Top 10 Stations')
 plt.xlabel('Station')
