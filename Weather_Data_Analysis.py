@@ -16,3 +16,15 @@ plt.ylabel('Frequency')
 plt.grid(True)
 plt.show()
 
+# Sample the data to avoid congestion (e.g., sample 1000 points)
+sampled_df = df.sample(n=1000, random_state=1)
+
+# Box plot of wind speed (sampled data)
+plt.figure(figsize=(10, 6))
+plt.boxplot(sampled_df['WindSpeed'], vert=False)
+plt.title('Wind Speed Distribution (Sampled Data)')
+plt.xlabel('Wind Speed (m/s)')
+plt.yticks([])
+plt.grid(True)
+plt.show()
+
