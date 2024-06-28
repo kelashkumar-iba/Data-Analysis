@@ -48,7 +48,7 @@ df = pd.read_csv("D:\DataCamp\Datasets\weather.csv", parse_dates=['Date'])
 sampled_df = df.sample(n=100, random_state=1).sort_values(by='Date')
 
 # Line plot of temperature variation over time (sampled data)
-plt.figure(figsize=(10, 5))
+plt.figure(figsize=(10, 7))
 plt.plot(sampled_df['Date'], sampled_df['Temperature'], marker='o', linestyle='-', color='b')
 plt.title('Temperature Variation (Sampled Data)')
 plt.xlabel('Date')
