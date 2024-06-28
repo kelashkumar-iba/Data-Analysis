@@ -4,6 +4,18 @@ import matplotlib.pyplot as plt
 # Load the dataset
 df = pd.read_csv("D:\DataCamp\Datasets\weather.csv")
 
+
+# Count occurrences of each weather condition
+weather_counts = df['WeatherCondition'].value_counts().head(10)
+
+# Pie chart of top 10 weather condition frequencies
+plt.figure(figsize=(8, 8))
+plt.pie(weather_counts, labels=weather_counts.index, autopct='%1.1f%%', startangle=140)
+plt.title('Top 10 Weather Condition Distribution')
+plt.axis('equal')
+plt.show()
+
+
 # Sample the data to avoid congestion (e.g., sample 1000 points)
 sampled_df = df.sample(n=1000, random_state=1)
 
@@ -28,15 +40,3 @@ plt.ylabel('Total Precipitation')
 plt.xticks(rotation=45)
 plt.grid(True)
 plt.show()
-
-
-# Count occurrences of each weather condition
-weather_counts = df['WeatherCondition'].value_counts().head(10)
-
-# Pie chart of top 10 weather condition frequencies
-plt.figure(figsize=(8, 8))
-plt.pie(weather_counts, labels=weather_counts.index, autopct='%1.1f%%', startangle=140)
-plt.title('Top 10 Weather Condition Distribution')
-plt.axis('equal')
-plt.show()
-
