@@ -1,20 +1,20 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Load the dataset with specified column names and adjust for spaces and quotes
-df = pd.read_csv("D:\\DataCamp\\Datasets\\influncers.csv", skipinitialspace=True, quotechar='"')
+# Load the dataset
+df = pd.read_csv("D:\\DataCamp\\Datasets\\weather.csv")
 
-# Convert Followers, Authentic engagement, and Engagement avg to numeric
-df['Followers'] = df['Followers'].str.replace('M', 'e6').str.replace('K', 'e3').astype(float)
-df['Authentic engagement'] = df['"Authentic engagement"'].str.replace('K', 'e3').astype(float)
-df['Engagement avg'] = df['"Engagement avg"'].str.replace('K', 'e3').astype(float)
+# Calculate statistics
+average_temp = df['Temperature'].mean()
+min_temp = df['Temperature'].min()
+max_temp = df['Temperature'].max()
 
-# Audience Country and Engagement Average
-audience_engagement = df.groupby('Audience country(mostly)')['Engagement avg'].mean().sort_values(ascending=False)
-
+# Line plot of temperature variation over time
 plt.figure(figsize=(12, 6))
-audience_engagement.plot(kind='bar', color='green')
-plt.title('Average Engagement by Audience Country')
-plt.xlabel('Audience Country')
-plt.ylabel('Engagement Average')
+plt.plot(df['Date'], df['Temperature'], marker='o', linestyle='-', color='b')
+plt.title('Temperature Variation')
+plt.xlabel('Date')
+plt.ylabel('Temperature (°C)')
+plt.xticks(rotation=45)
+plt.grid(True)
 plt.show()
