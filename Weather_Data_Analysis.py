@@ -21,7 +21,7 @@ sampled_df = df.sample(n=1000, random_state=1)
 
 # Histogram of humidity levels (sampled data)
 plt.figure(figsize=(8, 6))
-plt.hist(sampled_df['Humidity'], bins=20, color='g', alpha=0.7)
+plt.hist(sampled_df['Humidity'], bins=20, color='r', alpha=0.7)
 plt.title('Humidity Distribution (Sampled Data)')
 plt.xlabel('Humidity (%)')
 plt.ylabel('Frequency')
