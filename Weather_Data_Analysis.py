@@ -16,15 +16,16 @@ plt.ylabel('Frequency')
 plt.grid(True)
 plt.show()
 
-# Sample the data to avoid congestion (e.g., sample 1000 points)
-sampled_df = df.sample(n=1000, random_state=1)
+# Summarize total precipitation by station
+total_precipitation = df.groupby('Station')['Precipitation'].sum().sort_values(ascending=False).head(10)
 
-# Box plot of wind speed (sampled data)
+# Bar chart of precipitation by top 10 stations
 plt.figure(figsize=(10, 6))
-plt.boxplot(sampled_df['WindSpeed'], vert=False)
-plt.title('Wind Speed Distribution (Sampled Data)')
-plt.xlabel('Wind Speed (m/s)')
-plt.yticks([])
+total_precipitation.plot(kind='bar', color='b')
+plt.title('Total Precipitation by Top 10 Stations')
+plt.xlabel('Station')
+plt.ylabel('Total Precipitation')
+plt.xticks(rotation=45)
 plt.grid(True)
 plt.show()
 
