@@ -40,3 +40,20 @@ plt.ylabel('Total Precipitation')
 plt.xticks(rotation=45)
 plt.grid(True)
 plt.show()
+
+
+df = pd.read_csv("D:\DataCamp\Datasets\weather.csv", parse_dates=['Date'])
+
+# Sample the data to avoid congestion (e.g., sample 100 points)
+sampled_df = df.sample(n=100, random_state=1).sort_values(by='Date')
+
+# Line plot of temperature variation over time (sampled data)
+plt.figure(figsize=(12, 6))
+plt.plot(sampled_df['Date'], sampled_df['Temperature'], marker='o', linestyle='-', color='b')
+plt.title('Temperature Variation (Sampled Data)')
+plt.xlabel('Date')
+plt.ylabel('Temperature (°C)')
+plt.xticks(rotation=45)
+plt.xticks(ticks=sampled_df['Date'][::10], labels=sampled_df['Date'][::10].dt.strftime('%Y-%m-%d'))
+plt.grid(True)
+plt.show()
