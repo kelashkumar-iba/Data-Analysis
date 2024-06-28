@@ -9,7 +9,7 @@ df = pd.read_csv("D:\DataCamp\Datasets\weather.csv")
 weather_counts = df['WeatherCondition'].value_counts().head(10)
 
 # Pie chart of top 10 weather condition frequencies
-plt.figure(figsize=(8, 8))
+plt.figure(figsize=(10, 5))
 plt.pie(weather_counts, labels=weather_counts.index, autopct='%1.1f%%', startangle=140)
 plt.title('Top 10 Weather Condition Distribution')
 plt.axis('equal')
