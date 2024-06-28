@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Load the dataset
-df = pd.read_csv("D:\DataCamp\Datasets\weather.csv")
+df = pd.read_csv("D:\DataCamp\Datasets\\weather.csv")
 
 
 # Count occurrences of each weather condition
