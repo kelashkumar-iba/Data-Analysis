@@ -5,22 +5,28 @@ import seaborn as sns
 # Load the dataset
 stocks_df = pd.read_csv("D:\DataCamp\Datasets\stocks.csv")
 
-import numpy as np
+# Calculate average closing price and standard deviation (volatility) for each stock
+average_closing_price = stocks_df[price_columns].mean()
+volatility = stocks_df[price_columns].std()
 
-# Calculate daily returns for the specific stock
-stock_symbol = 'Apple_Price'
-stocks_df['Date'] = pd.to_datetime(stocks_df['Date'])
-stocks_df = stocks_df.sort_values(by='Date')
-stocks_df['Apple_Daily_Return'] = stocks_df[stock_symbol].pct_change()
+# Create a figure and axes
+fig, ax1 = plt.subplots(figsize=(12, 8))
 
-# Sample data to reduce congestion
-sampled_data = stocks_df['Apple_Daily_Return'].dropna().sample(frac=0.1, random_state=42)
+# Plot average closing price
+color = 'tab:blue'
+ax1.set_xlabel('Stock Symbol')
+ax1.set_ylabel('Average Closing Price', color=color)
+ax1.bar(average_closing_price.index, average_closing_price.values, color=color)
+ax1.tick_params(axis='y', labelcolor=color)
+plt.xticks(rotation=45)
 
-# Plot the distribution of daily returns
-plt.figure(figsize=(10, 6))
-sns.histplot(sampled_data, kde=True, bins=30)
-plt.title(f'Distribution of Daily Returns for Apple')
-plt.xlabel('Daily Return')
-plt.ylabel('Frequency')
+# Plot volatility on the same axis
+ax2 = ax1.twinx()
+color = 'tab:red'
+ax2.set_ylabel('Volatility', color=color)
+ax2.plot(average_closing_price.index, volatility.values, color=color, marker='o')
+ax2.tick_params(axis='y', labelcolor=color)
+
+plt.title('Average Closing Price and Volatility for Different Stocks')
 plt.grid(True)
 plt.show()
