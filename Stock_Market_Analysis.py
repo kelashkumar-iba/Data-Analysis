@@ -4,8 +4,6 @@ import matplotlib.pyplot as plt
 
 stocks_df = pd.read_csv("D:\DataCamp\Datasets\stocks.csv")
 
-
-
 # Filter data for a specific stock (e.g., 'AAPL')
 stock_symbol = 'AAPL'
 stock_data = stocks_df[stocks_df['symbol'] == stock_symbol]
