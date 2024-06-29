@@ -5,26 +5,22 @@ import seaborn as sns
 # Load the dataset
 stocks_df = pd.read_csv("D:\DataCamp\Datasets\stocks.csv")
 
-# Select columns for volumes
-volume_columns = [
-    'Natural_Gas_Vol.', 'Crude_oil_Vol.', 'Copper_Vol.', 'Bitcoin_Vol.', 'Platinum_Vol.', 
-    'Ethereum_Vol.', 'Nasdaq_100_Vol.', 'Apple_Vol.', 'Tesla_Vol.', 'Microsoft_Vol.', 
-    'Silver_Vol.', 'Google_Vol.', 'Nvidia_Vol.', 'Berkshire_Vol.', 'Netflix_Vol.', 
-    'Amazon_Vol.', 'Meta_Vol.', 'Gold_Vol.'
-]
+import numpy as np
 
-# Melt the dataframe to have a long format for seaborn plotting
-volume_data = stocks_df.melt(id_vars='Date', value_vars=volume_columns, var_name='Stock', value_name='Volume')
+# Calculate daily returns for the specific stock
+stock_symbol = 'Apple_Price'
+stocks_df['Date'] = pd.to_datetime(stocks_df['Date'])
+stocks_df = stocks_df.sort_values(by='Date')
+stocks_df['Apple_Daily_Return'] = stocks_df[stock_symbol].pct_change()
 
 # Sample data to reduce congestion
-volume_data = volume_data.sample(frac=0.1, random_state=42)
+sampled_data = stocks_df['Apple_Daily_Return'].dropna().sample(frac=0.1, random_state=42)
 
-# Plot volume traded over time for different stocks
-plt.figure(figsize=(14, 8))
-sns.lineplot(data=volume_data, x='Date', y='Volume', hue='Stock')
-plt.title('Volume Traded Over Time for Different Stocks')
-plt.xlabel('Date')
-plt.ylabel('Volume Traded')
-plt.xticks(rotation=45)
+# Plot the distribution of daily returns
+plt.figure(figsize=(10, 6))
+sns.histplot(sampled_data, kde=True, bins=30)
+plt.title(f'Distribution of Daily Returns for Apple')
+plt.xlabel('Daily Return')
+plt.ylabel('Frequency')
 plt.grid(True)
 plt.show()
