@@ -1,10 +1,10 @@
-import pandas as pd 
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 stocks_df = pd.read_csv("D:\DataCamp\Datasets\stocks.csv")
-print(stocks_df.head())
 
-import matplotlib.pyplot as plt
-import seaborn as sns
+
 
 # Filter data for a specific stock (e.g., 'AAPL')
 stock_symbol = 'AAPL'
