@@ -5,28 +5,19 @@ import seaborn as sns
 # Load the dataset
 stocks_df = pd.read_csv("D:\DataCamp\Datasets\stocks.csv")
 
-# Calculate average closing price and standard deviation (volatility) for each stock
-average_closing_price = stocks_df[price_columns].mean()
-volatility = stocks_df[price_columns].std()
+# Filter data for a specific stock (e.g., 'Apple')
+stock_symbol = 'Apple_Price'
+stock_data = stocks_df[['Date', stock_symbol]]
 
-# Create a figure and axes
-fig, ax1 = plt.subplots(figsize=(12, 8))
+# Sample data to reduce congestion
+stock_data = stock_data.sample(50, random_state=42).sort_values('Date')
 
-# Plot average closing price
-color = 'tab:blue'
-ax1.set_xlabel('Stock Symbol')
-ax1.set_ylabel('Average Closing Price', color=color)
-ax1.bar(average_closing_price.index, average_closing_price.values, color=color)
-ax1.tick_params(axis='y', labelcolor=color)
+# Plot closing prices over time
+plt.figure(figsize=(10, 6))
+sns.lineplot(data=stock_data, x='Date', y=stock_symbol)
+plt.title(f'Trend of Closing Prices for Apple')
+plt.xlabel('Date')
+plt.ylabel('Closing Price')
 plt.xticks(rotation=45)
-
-# Plot volatility on the same axis
-ax2 = ax1.twinx()
-color = 'tab:red'
-ax2.set_ylabel('Volatility', color=color)
-ax2.plot(average_closing_price.index, volatility.values, color=color, marker='o')
-ax2.tick_params(axis='y', labelcolor=color)
-
-plt.title('Average Closing Price and Volatility for Different Stocks')
 plt.grid(True)
 plt.show()
