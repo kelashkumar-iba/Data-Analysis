@@ -23,19 +23,26 @@ plt.grid(True)
 plt.show()
 
 
-# Select columns for closing prices
-price_columns = [
-    'Natural_Gas_Price', 'Crude_oil_Price', 'Copper_Price', 'Bitcoin_Price', 'Platinum_Price', 
-    'Ethereum_Price', 'S&P_500_Price', 'Nasdaq_100_Price', 'Apple_Price', 'Tesla_Price', 
-    'Microsoft_Price', 'Silver_Price', 'Google_Price', 'Nvidia_Price', 'Berkshire_Price', 
-    'Netflix_Price', 'Amazon_Price', 'Meta_Price', 'Gold_Price'
+# Select columns for volumes
+volume_columns = [
+    'Natural_Gas_Vol.', 'Crude_oil_Vol.', 'Copper_Vol.', 'Bitcoin_Vol.', 'Platinum_Vol.', 
+    'Ethereum_Vol.', 'Nasdaq_100_Vol.', 'Apple_Vol.', 'Tesla_Vol.', 'Microsoft_Vol.', 
+    'Silver_Vol.', 'Google_Vol.', 'Nvidia_Vol.', 'Berkshire_Vol.', 'Netflix_Vol.', 
+    'Amazon_Vol.', 'Meta_Vol.', 'Gold_Vol.'
 ]
 
-# Calculate the correlation matrix
-correlation_matrix = stocks_df[price_columns].corr()
+# Melt the dataframe to have a long format for seaborn plotting
+volume_data = stocks_df.melt(id_vars='Date', value_vars=volume_columns, var_name='Stock', value_name='Volume')
 
-# Plot the correlation matrix
-plt.figure(figsize=(12, 8))
-sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', vmin=-1, vmax=1)
-plt.title('Correlation Between Closing Prices of Different Stocks')
+# Sample data to reduce congestion
+volume_data = volume_data.sample(500, random_state=42)
+
+# Plot volume traded over time for different stocks
+plt.figure(figsize=(14, 8))
+sns.lineplot(data=volume_data, x='Date', y='Volume', hue='Stock', legend=False)
+plt.title('Volume Traded Over Time for Different Stocks')
+plt.xlabel('Date')
+plt.ylabel('Volume Traded')
+plt.xticks(rotation=45)
+plt.grid(True)
 plt.show()
