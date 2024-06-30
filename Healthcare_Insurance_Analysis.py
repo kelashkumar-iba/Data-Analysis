@@ -8,11 +8,11 @@ healthcare = pd.read_csv("D:\\DataCamp\\Datasets\\insurance.csv")
 # ---------------------------------------------------
 # 1: What is the distribution of ages in the dataset?
 # Set the style for the plots
-sns.set(style="darkgrid")
+sns.set(style="whitegrid")
 
 # Plot the distribution of ages
 plt.figure(figsize=(10, 6))
-sns.histplot(healthcare['age'], kde=True, bins=20)
+sns.histplot(healthcare['age'], kde=True, bins=20, palette='Set2')
 plt.title('Age Distribution')
 plt.xlabel('Age')
 plt.ylabel('Frequency')
@@ -22,7 +22,7 @@ plt.show()
 # 2: What is the relationship between BMI and charges?
 # Plot the relationship between BMI and charges
 plt.figure(figsize=(10, 6))
-sns.scatterplot(x='bmi', y='charges', data=healthcare)
+sns.scatterplot(x='bmi', y='charges', data=healthcare, palette='Set2')
 plt.title('BMI vs. Charges')
 plt.xlabel('BMI')
 plt.ylabel('Charges')
@@ -32,7 +32,7 @@ plt.show()
 # 3: How do charges vary between smokers and non-smokers?
 # Plot charges for smokers vs non-smokers
 plt.figure(figsize=(10, 6))
-sns.boxplot(x='smoker', y='charges', data=healthcare)
+sns.boxplot(x='smoker', y='charges', data=healthcare, palette='Set2')
 plt.title('Charges for Smokers vs. Non-Smokers')
 plt.xlabel('Smoker')
 plt.ylabel('Charges')
