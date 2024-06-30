@@ -22,7 +22,7 @@ plt.show()
 # 2: What is the relationship between BMI and charges?
 # Plot the relationship between BMI and charges
 plt.figure(figsize=(10, 6))
-sns.scatterplot(x='bmi', y='charges', data=healthcare)
+sns.regplot(x='bmi', y='charges', data=healthcare)
 plt.title('BMI vs. Charges')
 plt.xlabel('BMI')
 plt.ylabel('Charges')
