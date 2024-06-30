@@ -8,7 +8,7 @@ healthcare = pd.read_csv("D:\\DataCamp\\Datasets\\insurance.csv")
 # ---------------------------------------------------
 # 1: What is the distribution of ages in the dataset?
 # Set the style for the plots
-sns.set(style="whitegrid")
+sns.set(style="darkgrid")
 
 # Plot the distribution of ages
 plt.figure(figsize=(10, 6))
