@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 # Load the dataset
 healthcare = pd.read_csv("D:\\DataCamp\\Datasets\\insurance.csv")
 
+# ---------------------------------------------------
+# 1: What is the distribution of ages in the dataset?
 # Set the style for the plots
 sns.set(style="whitegrid")
 
@@ -16,7 +18,8 @@ plt.xlabel('Age')
 plt.ylabel('Frequency')
 plt.show()
 
-
+# -----------------------------------------------------
+# 2: What is the relationship between BMI and charges?
 # Plot the relationship between BMI and charges
 plt.figure(figsize=(10, 6))
 sns.scatterplot(x='bmi', y='charges', data=healthcare)
@@ -25,7 +28,8 @@ plt.xlabel('BMI')
 plt.ylabel('Charges')
 plt.show()
 
-
+# ------------------------------------------------------
+# 3: How do charges vary between smokers and non-smokers?
 # Plot charges for smokers vs non-smokers
 plt.figure(figsize=(10, 6))
 sns.boxplot(x='smoker', y='charges', data=healthcare)
@@ -34,7 +38,8 @@ plt.xlabel('Smoker')
 plt.ylabel('Charges')
 plt.show()
 
-
+# -------------------------------------------------------
+# 4: How do charges vary across different regions?
 # Plot charges across different regions
 plt.figure(figsize=(10, 6))
 sns.boxplot(x='region', y='charges', data=healthcare)
@@ -43,7 +48,8 @@ plt.xlabel('Region')
 plt.ylabel('Charges')
 plt.show()
 
-
+# --------------------------------------------------------
+# 5: What is the average charge for different age groups?
 # Create age groups
 healthcare['age_group'] = pd.cut(healthcare['age'], bins=[18, 30, 40, 50, 60, 70], labels=['18-29', '30-39', '40-49', '50-59', '60-69'])
 
@@ -55,3 +61,4 @@ plt.xlabel('Age Group')
 plt.ylabel('Average Charges')
 plt.show()
 
+# --------------------------------------------------------------
