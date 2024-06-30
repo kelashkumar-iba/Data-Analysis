@@ -42,7 +42,7 @@ plt.show()
 # 4: How do charges vary across different regions?
 # Plot charges across different regions
 plt.figure(figsize=(10, 6))
-sns.stripplot(x='region', y='charges', data=healthcare)
+sns.boxplot(x='region', y='charges', data=healthcare)
 plt.title('Charges by Region')
 plt.xlabel('Region')
 plt.ylabel('Charges')
