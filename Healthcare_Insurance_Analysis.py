@@ -15,3 +15,12 @@ plt.title('Age Distribution')
 plt.xlabel('Age')
 plt.ylabel('Frequency')
 plt.show()
+
+
+# Plot the relationship between BMI and charges
+plt.figure(figsize=(10, 6))
+sns.scatterplot(x='bmi', y='charges', data=data)
+plt.title('BMI vs. Charges')
+plt.xlabel('BMI')
+plt.ylabel('Charges')
+plt.show()
