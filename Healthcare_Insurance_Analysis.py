@@ -24,3 +24,12 @@ plt.title('BMI vs. Charges')
 plt.xlabel('BMI')
 plt.ylabel('Charges')
 plt.show()
+
+
+# Plot charges for smokers vs non-smokers
+plt.figure(figsize=(10, 6))
+sns.boxplot(x='smoker', y='charges', data=healthcare)
+plt.title('Charges for Smokers vs. Non-Smokers')
+plt.xlabel('Smoker')
+plt.ylabel('Charges')
+plt.show()
