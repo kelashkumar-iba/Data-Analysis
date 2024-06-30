@@ -55,7 +55,7 @@ healthcare['age_group'] = pd.cut(healthcare['age'], bins=[18, 30, 40, 50, 60, 70
 
 # Plot average charges by age group
 plt.figure(figsize=(10, 6))
-sns.stripplot(x='age_group', y='charges', data=healthcare, estimator=lambda x: sum(x) / len(x))
+sns.barplot(x='age_group', y='charges', data=healthcare, estimator=lambda x: sum(x) / len(x))
 plt.title('Average Charges by Age Group')
 plt.xlabel('Age Group')
 plt.ylabel('Average Charges')
