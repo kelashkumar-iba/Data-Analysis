@@ -32,7 +32,7 @@ plt.show()
 # 3: How do charges vary between smokers and non-smokers?
 # Plot charges for smokers vs non-smokers
 plt.figure(figsize=(10, 6))
-sns.boxplot(x='smoker', y='charges', data=healthcare)
+sns.violinplot(x='smoker', y='charges', data=healthcare)
 plt.title('Charges for Smokers vs. Non-Smokers')
 plt.xlabel('Smoker')
 plt.ylabel('Charges')
@@ -42,7 +42,7 @@ plt.show()
 # 4: How do charges vary across different regions?
 # Plot charges across different regions
 plt.figure(figsize=(10, 6))
-sns.boxplot(x='region', y='charges', data=healthcare)
+sns.stripplot(x='region', y='charges', data=healthcare)
 plt.title('Charges by Region')
 plt.xlabel('Region')
 plt.ylabel('Charges')
