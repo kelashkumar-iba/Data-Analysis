@@ -12,7 +12,7 @@ sns.set(style="whitegrid")
 
 # Plot the distribution of ages
 plt.figure(figsize=(10, 6))
-sns.histplot(healthcare['age'], kde=True, bins=20, palette='Set3')
+sns.histplot(healthcare['age'], kde=True, bins=20, palette='Set2')
 plt.title('Age Distribution')
 plt.xlabel('Age')
 plt.ylabel('Frequency')
