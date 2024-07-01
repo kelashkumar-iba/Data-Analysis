@@ -3,7 +3,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 # Load the dataset
-healthcare = pd.read_csv("D:\\DataCamp\\Datasets\\insuranc.csv")
+healthcare = pd.read_csv("D:\\DataCamp\\Datasets\\insurane.csv")
 
 # ---------------------------------------------------
 # 1: What is the distribution of ages in the dataset?
